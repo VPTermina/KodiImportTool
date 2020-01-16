@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.SubScene?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.myMainActionController">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#run_menue_refresh" text="Refresh" />
+            <MenuItem mnemonicParsing="false" text="Open…" visible="false" />
+            <Menu mnemonicParsing="false" text="Open Recent" visible="false" />
+            <SeparatorMenuItem mnemonicParsing="false" visible="false" />
+            <MenuItem mnemonicParsing="false" text="Close" visible="false" />
+            <MenuItem mnemonicParsing="false" text="Save As…" visible="false" />
+            <SeparatorMenuItem mnemonicParsing="false" visible="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" visible="false" />
+            <SeparatorMenuItem mnemonicParsing="false" visible="false" />
+            <MenuItem fx:id="menue_quit" mnemonicParsing="false" onAction="#run_menue_quit" text="Quit" />
+          </items>
+        </Menu>
+            <Menu mnemonicParsing="false" text="Original Video">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#run_menue_load_original_videos" text="Load Original Video" />
+                  <MenuItem mnemonicParsing="false" onAction="#run_menue_setDefaultValues" text="Load Defaults (Status 1)" />
+            <MenuItem mnemonicParsing="false" onAction="#run_menue_SetStatus2" text="Set status 2" visible="true" />
+            <MenuItem mnemonicParsing="false" onAction="#run_menue_remove_line" text="Remove lines (Status 0)" />
+                  <MenuItem mnemonicParsing="false" onAction="#run_menue_clearTableOriginalVideo" text="Clear Original Video Table" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Video Actions">
+              <items>
+                  <MenuItem mnemonicParsing="false" onAction="#run_menue_moveOriginalVideo" text="Move Original Videos (Status 2)" />
+                  <MenuItem mnemonicParsing="false" onAction="#run_menue_ViewVideo" text="View Video" />
+              </items>
+            </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+                  <MenuItem mnemonicParsing="false" text="Properties" />
+                  <MenuItem mnemonicParsing="false" onAction="#run_menue_MediaInfoDLLInfo" text="About MediaInfo" />
+            <MenuItem mnemonicParsing="false" text="About MyKodiApp" />
+          </items>
+        </Menu>
+      </menus>
+
+    </MenuBar>
+     
+     <SplitPane dividerPositions="0.25103448275862067, 0.5351724137931034" focusTraversable="true" orientation="VERTICAL" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <items>
+
+            
+            
+                  <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
+                     <content>
+                        <GridPane prefHeight="-1.0" prefWidth="-1.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" prefWidth="400.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" prefWidth="400.0" />
+                          </columnConstraints>
+                          
+                          <rowConstraints>
+                              <RowConstraints prefHeight="40.0" vgrow="SOMETIMES" />
+                              <RowConstraints prefHeight="40.0" vgrow="SOMETIMES" />
+                              <RowConstraints prefHeight="40.0" vgrow="SOMETIMES" /> 
+                           </rowConstraints>
+                           
+                           <children>
+                           
+                           
+                              <HBox prefHeight="-1.0" prefWidth="-1.0">
+                                 <children>
+                                    <Label prefHeight="25.0" prefWidth="128.0" text="Destination Path" />
+                                    <ComboBox id="choice_ori_file_location" fx:id="choice_destination_file_location" prefHeight="25.0" prefWidth="301.0" promptText="Input" />
+                                 </children>
+                                 <GridPane.margin>
+                                    <Insets left="10.0" top="10.0" />
+                                
+                                 </GridPane.margin>
+                              </HBox>
+                               <HBox prefHeight="-1.0" prefWidth="-1.0" GridPane.rowIndex="1">
+                                 <children>
+                                    <Label prefHeight="17.0" prefWidth="163.0" text="Genre" />
+                                    <MenuButton fx:id="genreMenueButton" alignment="BOTTOM_CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="337.0" text="MenuButton">
+                                      <items>
+                                        <MenuItem mnemonicParsing="false" text="Action 1" />
+                                        <MenuItem mnemonicParsing="false" text="Action 2" />
+                                      </items>
+                                    </MenuButton>
+                                 </children>
+                                 <GridPane.margin>
+                                    <Insets left="10.0" top="10.0" />
+                                 </GridPane.margin>
+                                 
+                                 </HBox> 
+                              <HBox prefHeight="-1.0" prefWidth="-1.0" GridPane.rowIndex="2">
+                                 <children>
+                                    <Label prefHeight="17.0" prefWidth="108.0" text="Title" />
+                                    <TextField fx:id="titleField" prefHeight="25.0" prefWidth="269.0" />
+                                 </children>
+                                 <GridPane.margin>
+                                   <Insets left="10.0" top="10.0" />
+                                 </GridPane.margin>
+                              </HBox>
+                              <HBox prefHeight="-1.0" prefWidth="-1.0" GridPane.columnIndex="1">
+                                 <children>
+                                    <Label prefHeight="17.0" prefWidth="100.0" text="Date" />
+                                    <TextField fx:id="dateStringField" prefHeight="25.0" prefWidth="154.0" />
+                                    <DatePicker fx:id="dateField" prefHeight="25.0" prefWidth="170.0" />
+                                 </children>
+                                 <GridPane.margin>
+                                    <Insets left="10.0" top="10.0" />
+                                 </GridPane.margin>
+                              </HBox>
+                              <HBox prefHeight="-1.0" prefWidth="-1.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <children>
+                                    <Label prefHeight="17.0" prefWidth="100.0" text="Plot" />
+                                    <TextField fx:id="plotField" prefHeight="25.0" prefWidth="250.0" />
+                                 </children>
+                                 <GridPane.margin>
+                                    <Insets left="10.0" top="10.0" />
+                                 </GridPane.margin>
+                              </HBox>
+                              <HBox prefHeight="-1.0" prefWidth="-1.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <children>
+                                    <Label prefHeight="17.0" prefWidth="100.0" text="Remarks" />
+                                    <TextField fx:id="remarkField" prefHeight="25.0" prefWidth="251.0" />
+                                 </children>
+                                 <GridPane.margin>
+                                    <Insets left="10.0" top="10.0" />
+                                 </GridPane.margin>
+                              </HBox>
+                           </children>
+                        </GridPane>
+                     </content>
+                  </ScrollPane>
+                  
+                  
+                  
+                  
+                  
+                  <ScrollPane prefHeight="-1.0" prefWidth="-1.0" visible="true">
+                     <content>
+                        
+                        <SplitPane dividerPositions="0.6409550045913682" prefHeight="202.0" prefWidth="1200.0">
+                           <items>
+                        <TextArea fx:id="statusText" prefHeight="200.0" prefWidth="200.0" />
+                        <AnchorPane fx:id="ap" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                                    
+                                   
+                                    <SubScene fx:id="videoScene" width="388.0">
+                                            <root>
+                                              <Region />
+                                            </root>
+                                          </SubScene> 
+                           </children>
+                        </AnchorPane>
+                                    
+                           </items>
+                        </SplitPane>
+                        
+                     </content></ScrollPane> 
+                 
+                 
+
+                              <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
+                                 <content>
+
+                                                      <TableView fx:id="tableViewOriginalVideo" layoutX="-2.0" prefHeight="-1.0" prefWidth="1200">
+                                                        <columns>
+                                                      		<TableColumn fx:id="selectedEditColumn" maxWidth="50.0" onEditCommit="#changeSelectedEditCellEvent" prefWidth="50.0" text="Select" />
+                                                      		<TableColumn fx:id="creationDateColumn" maxWidth="84" onEditCommit="#changeCreationDateCellEvent" prefWidth="84.0" text="Date" />
+                                                      		<TableColumn fx:id="fileNameColumn" maxWidth="300.0" minWidth="0.0" onEditCommit="#changeFileNameCellEvent" prefWidth="200.0" text="Filename" visible="false" />
+                                                      		<TableColumn fx:id="titleColumn" maxWidth="400" minWidth="0.0" onEditCommit="#changeTitleColumnCellEvent" prefWidth="300" text="Title" />
+                                                      		<TableColumn fx:id="genreColumn" maxWidth="400.0" minWidth="1.0" onEditCommit="#changeGenreColumnCellEvent" prefWidth="75" text="Genre" />
+                                                      		<TableColumn fx:id="plotColumn" maxWidth="500.0" minWidth="0.0" onEditCommit="#changePlotCellEvent" prefWidth="500" text="Plot" />
+                                                      		<TableColumn fx:id="remarksColumn" maxWidth="436.0" minWidth="0.0" onEditCommit="#changeRemarklsCellEvent" prefWidth="436" text="Remarks" visible="false" />
+                                          
+                                                        </columns>
+                                                      </TableView> 
+
+                                 </content>
+                              </ScrollPane>
+
+      </items>
+    </SplitPane>      
+  </children>
+</VBox>
