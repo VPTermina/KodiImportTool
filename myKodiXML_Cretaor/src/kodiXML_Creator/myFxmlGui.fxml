@@ -24,7 +24,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="myMainActionController">
+<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kodiXML_Creator.myMainActionController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -73,7 +73,7 @@
 
             
             
-                  <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
+                  <ScrollPane prefHeight="115.0" prefWidth="1200.0">
                      <content>
                         <GridPane prefHeight="-1.0" prefWidth="-1.0">
                           <columnConstraints>
@@ -167,7 +167,7 @@
                         <SplitPane dividerPositions="0.6409550045913682" prefHeight="202.0" prefWidth="1200.0">
                            <items>
                         <TextArea fx:id="statusText" prefHeight="200.0" prefWidth="200.0" />
-                        <AnchorPane fx:id="ap" prefHeight="200.0" prefWidth="200.0">
+                        <AnchorPane fx:id="ap" prefHeight="139.0" prefWidth="340.0">
                            <children>
                                     
                                    
