@@ -15,7 +15,4 @@ module myKodiXML_Cretaor {
     requires javafx.swing;
     requires javafx.swt;
 	
-
-	
-
 }

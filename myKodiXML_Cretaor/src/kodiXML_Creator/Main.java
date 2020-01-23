@@ -11,9 +11,7 @@ import javafx.scene.Scene;
 
 public class Main extends Application {
 
-
 	
-	 
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -43,18 +41,13 @@ public class Main extends Application {
 		}
 	}
 	
+
+	/**
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
-//System.setProperty("jna.library.path", "c:\\Users\\rocco\\OneDrive\\WorkspaceTermina\\libraries\\");
-       
-		
-        //System.setProperty("jna.boot.library.path", "c:\\Users\\rocco\\OneDrive\\WorkspaceTermina\\libraries\\"); 
-       //System.setProperty("<libvlc-path>");
-        
-        
-        // Pfad zu den VLC Video Libarys
-		//System.setProperty("jna.nosys", "true"); 
-		
-		
+
 		launch(args);
 	}
 }
