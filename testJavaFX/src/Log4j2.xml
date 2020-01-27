@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Properties>
+        <Property name="basePath">logFolder</Property>
+    </Properties>
+ 
+    <Appenders>
+        <RollingFile name="fileLogger" fileName="${basePath}/app-info.log" filePattern="${basePath}/app-info-%d{yyyy-MM-dd}.log">
+            <PatternLayout>
+                <pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n</pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+            </Policies>
+        </RollingFile>
+ 
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout   pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n" />
+        </Console>
+        
+        
+    </Appenders>
+    <Loggers>
+    
+         <Logger name="de.gallas_it.baseutilities.Main" level="ALL" additivity="false">
+            <appender-ref ref="console" level="ALL"> </appender-ref>
+            <appender-ref ref="fileLogger" level="off"> </appender-ref>
+            
+        </Logger>
+        
+        <Logger name="de.gallas_it.baseutilities.DateAndTime" level="trace" additivity="false">
+            <appender-ref ref="console" level="ALL"> </appender-ref>
+            <appender-ref ref="fileLogger" level="off"> </appender-ref>
+            
+        </Logger>
+        
+        <Logger name="de.gallas_it.baseutilities.MediaInfo" level="WARN" additivity="false">
+        	<appender-ref ref="console" level="ERROR"> </appender-ref>
+        	<appender-ref ref="fileLogger" level="all"> </appender-ref>
+        </Logger>
+        
+        
+        
+    </Loggers>
+</Configuration>
